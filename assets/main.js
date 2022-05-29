@@ -15,6 +15,9 @@ let tiempoRegresivoID = null;
 let mostrarMovimiento = document.getElementById("movimientos");
 let mostrarAciertos = document.getElementById("aciertos");
 let mostrarTiempo = document.getElementById("t-restante")
+let clickAudio = document.getElementById("click-audio");
+let dobleteAudio = document.getElementById("doblete-audio");
+let loseAudio = document.getElementById("lose-audio");
 
 let numeros = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 
@@ -56,11 +59,12 @@ const destapar = (id) => {
 
     if (targetasDestapda === 1) {
 
-
         // mostrar el primer numero
         targeta1 = document.getElementById(id);
         primerResultado = numeros[id]
-        targeta1.innerHTML = primerResultado
+        //targeta1.innerHTML = primerResultado
+        targeta1.innerHTML = `<img src="assets/images/${primerResultado}.png" alt="">`
+        clickAudio.play()
 
         //desabilitar primer botn
         targeta1.disable = true;
@@ -70,7 +74,9 @@ const destapar = (id) => {
         //mostrar segundo numero
         targeta2 = document.getElementById(id);
         segundoResultado = numeros[id]
-        targeta2.innerHTML = segundoResultado;
+        // targeta2.innerHTML = segundoResultado;
+        targeta2.innerHTML = `<img src="assets/images/${segundoResultado}.png" alt="">`
+        clickAudio.play()
 
         //desabilar boton 2
         targeta2.disable = true;
@@ -78,6 +84,8 @@ const destapar = (id) => {
         mostrarMovimiento.innerHTML = `Movimineto:${movimientos}`;
 
         if (primerResultado === segundoResultado) {
+            dobleteAudio.play()
+
             //encerra contrador de targetas destapadas
             targetasDestapda = 0;
 
@@ -86,11 +94,13 @@ const destapar = (id) => {
 
             if (aciertos === 8) {
                 clearInterval(tiempoRegresivoID);
-                mostrarAciertos.innerHTML = `Acietos: ${aciertos} &#128512;`
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} &#128512;`
                 mostrarTiempo.innerHTML = `Fantastico Tardaste: ${timerInicial - timer} segundos`
                 mostrarMovimiento.innerHTML = `movimiento &#128073 ${movimientos}`
             }
         } else {
+            loseAudio.play()
+
             // mostrar momentaneamente valores y vover a cargar
             setTimeout(() => {
                 targeta1.innerHTML = " "
@@ -98,9 +108,8 @@ const destapar = (id) => {
                 targeta1.disable = false;
                 targeta2.disable = false;
                 targetasDestapda = 0;
-            }, 8000);
+            }, 800);
         }
-
 
     }
 

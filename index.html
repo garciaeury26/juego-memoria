@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="./assets/images/gaming.png">
+    <title>Adivina los pokemons</title>
     <link rel="stylesheet" href="./assets/css/estilos.css">
 </head>
 <body>
     <main>
         <section class="section1">
             <h1>Juego de memoria</h1>
+            <audio id="click-audio">
+                <source  src="./assets/audio/sound.wav" type="audio/mpeg">
+              </audio>
+            <audio id="doblete-audio">
+                <source  src="./assets/audio/par.wav" type="audio/mpeg">
+              </audio>
+            <audio id="lose-audio">
+                <source  src="./assets/audio/lose.wav" type="audio/mpeg">
+              </audio>
             <table>
                 <tr>
                     <td><button type="button" id="0" onclick="destapar(0)"></button></td>
@@ -44,9 +54,12 @@
             <h2 id="movimientos" class="estadisticas">Movimientos: 0</h2>
         </section>
     </main>
-    <footer>
-        &copy Eury joel 2022
-    </footer>
+        <footer>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/eury-ure%C3%B1a-75b45120b/">Linkedin</a></li>
+              <li><a href="https://github.com/garciaeury26?tab=repositories">Github</a></li>            
+            </ul>
+          </footer>
 
     <script src="./assets/main.js"></script>
 </body>
