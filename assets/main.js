@@ -31,8 +31,8 @@ const contarTiempo = () => {
     tiempoRegresivoID = setInterval(() => {
         timer--;
         mostrarTiempo.innerHTML = `Tiempo restante ${timer}`
-        if (timer == 0) {
-            clearInterval(tiempoRegresivo);
+        if (timer === 0) {
+            clearInterval(tiempoRegresivoID);
             bloquearTargeta();
         }
     }, 1000);
@@ -40,10 +40,11 @@ const contarTiempo = () => {
 
 
 const bloquearTargeta = () => {
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 16;i++) {
         let targeBloqueada = document.getElementById(i)
-        targeBloqueada.innerHTML = numeros[i]
+        targeBloqueada.innerHTML = `<img src="assets/images/${numeros[i]}.png" alt="">`
         targeBloqueada.disable = true;
+        console.log(i)
     }
 }
 
