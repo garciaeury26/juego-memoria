@@ -1,141 +1,179 @@
-
-
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-    padding: 0;
-    margin: 0;
-    background:rgb(63, 94,251);
-    background: radial-gradient(circle, rgba(63, 94,251,1) 0%, rgba(252,7,107,1) 100%);
-    font-family: sans-serif;
-    color: white;
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+  overflow-x: hidden;
 }
 
-main{
-    margin: 100px auto 50px;
-    display: flex;
-    align-items: center;
-    width: 750px;
+main {
+  margin: 100px auto 50px;
+  display: flex;
+  align-items: center;
+  width: 750px;
 }
 
-.section1{
-    background-color: rgba(255, 255, 255,0.2);
-    padding: 0 10px 10px 10px;
-    border-radius: 8px;
+.section1 {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0 10px 10px 10px;
+  border-radius: 8px;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
 
-img{
-    width: 100%;
-    height: auto;
+img {
+  width: 100%;
+  height: auto;
 }
 
-button{
+button {
   display: flex;
   flex-wrap: wrap;
-    height: 100px;
-    width: 100px;
-    font-size: 2rem;
-    color: black;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
+  height: 100px;
+  width: 100px;
+  font-size: 2rem;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
 }
 
-button:hover{
-    cursor: pointer;
-    background-color: wheat;
+button:hover {
+  cursor: pointer;
+  background-color: wheat;
 }
 
 
 
-.section2{
-    background-color: rgba(255, 255, 255,0.2);
-    width: 250px;
-    height: 400px;
-    padding: 0 10px 10px 10px;
-    border-radius: 8px;
-    border-top-right-radius: 8px;
-    border-top-left-radius:8px;
-    padding: 0 20px;
+.section2 {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  height: 400px;
+  padding: 0 10px 10px 10px;
+  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  padding: 0 20px;
 }
 
-.estadisticas{
-    border: 1px solid white;
-    height: 105px;
-    border-radius: 8px;
-    padding: 8px 20px;
+.estadisticas {
+  border: 1px solid white;
+  height: 105px;
+  border-radius: 8px;
+  padding: 8px 20px;
 }
 
 
 /* fotter */
 ul {
-    display: inline-grid;
-    grid-auto-flow: row;
-    grid-gap: 24px;
-    justify-items: center;
-    margin: auto;
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 24px;
+  justify-items: center;
+  margin: auto;
+}
+
+@media (min-width: 500px) {
+  ul {
+    grid-auto-flow: column;
   }
-  
-  @media (min-width: 500px) {
-    ul {
-      grid-auto-flow: column;
-    }
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-    box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
-  }
-  
-  a:hover {
-    box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+}
+
+a:hover {
+  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+}
+
+
+li:last-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+li:hover~li p {
+  animation: wave-animation 0.3s infinite;
+}
+
+/* below is just for demo styling */
+
+footer {
+  padding: 1rem;
+  display: flex;
+  width: 100vw;
+  height: 120px;
+  background-color: #222;
+  line-height: 1.3;
+  align-items: center;
+  justify-content: center;
+  font-family: Menlo, monospace;
+}
+
+@keyframes wave-animation {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
   }
 
-  
-  li:last-child {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+  25% {
+    transform: rotate(20deg);
   }
-  
-  li:hover ~ li p {
-    animation: wave-animation 0.3s infinite;
+
+  75% {
+    transform: rotate(-15deg);
   }
-  
-  /* below is just for demo styling */
-  
-  footer {
-      padding:1rem;
-    display: flex;
-    width: 100%;
-    height:100%;
-    background-color: #222;
-    line-height: 1.3;
-    align-items: center;
-    justify-content: center;
-    font-family: Menlo, monospace;
 }
-  
-  @keyframes wave-animation {
-    0%,
-    100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(20deg);
-    }
-    75% {
-      transform: rotate(-15deg);
-    }
+
+/* bacground */
+.box {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background-image: radial-gradient(-600deg, #ebd266 50%, #616a70 50%);
+}
+
+.effect {
+  position: fixed;
+  top: 0;
+  animation: spin 25s infinite linear;
+  border-radius: 50%;
+  /** aprende tranform-origin**/
+  transform-origin: 50% 50%;
+  width: 800px;
+  height: 700px;
+  background-image: linear-gradient(160deg, #FBD065 5%, #8b5cf6 100%)
+    /* Alternate color scheme:
+  background-image: linear-gradient(15deg, rgba(19, 84, 122, 0.2) 0%, rgba(128, 208, 199, 0.2) 100%);*/
+}
+
+.effect:nth-child(2) {
+  right: 0%;
+  animation-duration: 10s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
   }
-  
+
+  to {
+    transform: rotate(0deg);
+  }
+}
